@@ -8,8 +8,8 @@ on:
 
 env:
   AWS_REGION: us-east-1  
-  ECR_REPOSITORY_APP: assignmet2-ecr-repo-dev  
-  ECR_REPOSITORY_MYSQL: assignment2-ecr-repo-mysql  
+  ECR_REPOSITORY_APP: assginment2-ecr-repo-dev  
+  ECR_REPOSITORY_MYSQL: assginment2-ecr-repo-mysql  
 
 jobs:
   build-and-push:
