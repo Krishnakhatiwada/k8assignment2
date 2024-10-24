@@ -167,12 +167,21 @@ resource "aws_eip" "static_eip_my_instance" {
 #   )
 # }
 # Elastic Container Registry (ECR) - Create a new repository
-resource "aws_ecr_repository" "my_ecr_repo" {
-  name                 = lower("${local.name_prefix}-ecr-repo")
+resource "aws_ecr_repository" "my_ecr_repo_dev" {
+  name                 = lower("${local.name_prefix}-ecr-repo-dev")
   image_tag_mutability = "MUTABLE"
   tags = merge(local.default_tags,
     {
-      "Name" = "${local.name_prefix}-ecr-repo"
+      "Name" = "${local.name_prefix}-ecr-repo-dev"
+    }
+  )
+}
+resource "aws_ecr_repository" "my_ecr_repo_mysql" {
+  name                 = lower("${local.name_prefix}-ecr-repo-mysql")
+  image_tag_mutability = "MUTABLE"
+  tags = merge(local.default_tags,
+    {
+      "Name" = "${local.name_prefix}-ecr-repo-mysql"
     }
   )
 }
