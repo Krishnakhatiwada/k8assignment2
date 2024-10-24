@@ -1,0 +1,6 @@
+
+# Ignore Terraform cache and provider files
+.terraform/*
+
+# Optionally ignore the lock file
+terraform.lock.hcl
