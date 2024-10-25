@@ -1,4 +1,4 @@
-# webapp-pod.yaml
+# webappp pod yaml file
 apiVersion: v1
 kind: Pod
 metadata:
