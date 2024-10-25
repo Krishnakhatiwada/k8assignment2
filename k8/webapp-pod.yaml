@@ -1,0 +1,13 @@
+# webapp-pod.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: webapp
+  labels:
+    app: employees
+spec:
+  containers:
+  - name: webapp
+    image: 345771349539.dkr.ecr.us-east-1.amazonaws.com/assginment2-ecr-repo-dev:latest
+    ports:
+    - containerPort: 8080

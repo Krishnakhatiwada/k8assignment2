@@ -1,0 +1,20 @@
+# webapp-rs.yaml
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: webapp-rs
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: employees
+  template:
+    metadata:
+      labels:
+        app: employees
+    spec:
+      containers:
+      - name: webapp
+        image: your-ecr-repo/webapp:latest
+        ports:
+        - containerPort: 8080
