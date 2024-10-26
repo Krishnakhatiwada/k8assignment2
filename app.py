@@ -9,8 +9,8 @@ app = Flask(__name__)
 
 DBHOST = os.environ.get("DBHOST") or "localhost"
 DBUSER = os.environ.get("DBUSER") or "root"
-DBPWD = os.environ.get("DBPWD") or "passwors"
-DATABASE = os.environ.get("DATABASE") or "employees"
+DBPWD = os.environ.get("DBPWD") or "password123"
+DATABASE = os.environ.get("DATABASE") or "assignment2"
 COLOR_FROM_ENV = os.environ.get('APP_COLOR') or "lime"
 DBPORT = int(os.environ.get("DBPORT"))
 

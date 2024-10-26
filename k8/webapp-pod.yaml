@@ -1,13 +1,23 @@
-# webappp pod yaml file
 apiVersion: v1
 kind: Pod
 metadata:
   name: webapp
   labels:
-    app: employees
+    app: webapp
 spec:
   containers:
   - name: webapp
-    image: 345771349539.dkr.ecr.us-east-1.amazonaws.com/assginment2-ecr-repo-dev:latest
+    image: 345771349539.dkr.ecr.us-east-1.amazonaws.com/assginment2-ecr-repo-dev:1b8426b0a70fa01bbcff0ed94f1709b358ba8951
     ports:
-    - containerPort: 8080
+    - containerPort: 80
+    env:
+    - name: DBHOST
+      value: "mysql-service"
+    - name: DBUSER
+      value: "root"
+    - name: DBPASSWORD
+      value: "password123"
+    - name: DBPORT
+      value: "3306"
+  imagePullSecrets:
+  - name: ecr-registry

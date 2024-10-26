@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: create-database
+spec:
+  template:
+    spec:
+      containers:
+      - name: mysql-client
+        image: mysql:5.7  # Use the appropriate MySQL version
+        command: ['sh', '-c', 'mysql -h mysql-service -u root -ppassword123 -e "CREATE DATABASE assignment2;"']
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: "password123"  # Use the same root password as in your MySQL pod
+      restartPolicy: Never
+  backoffLimit: 4  # Optional: Limit the number of retries
