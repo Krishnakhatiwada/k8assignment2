@@ -6,7 +6,7 @@ metadata:
     app: mysql
 spec:
   serviceName: mysql
-  replicas: 1  # Change this if you want more replicas
+  replicas: 3  # Change this if you want more replicas
   selector:
     matchLabels:
       app: mysql

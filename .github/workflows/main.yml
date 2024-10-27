@@ -4,7 +4,7 @@ on:
   pull_request:
     types: [closed]  # Use brackets for proper syntax
   # push:
-    branches: [kube]
+    branches: [main]
 
 env:
   AWS_REGION: us-east-1  
