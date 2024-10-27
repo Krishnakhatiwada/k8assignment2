@@ -1,9 +1,9 @@
 name: CI-CD of ECR
 
 on:
-  #pull_request:
-    # types: [closed]  # Use brackets for proper syntax
-  push:
+  pull_request:
+    types: [closed]  # Use brackets for proper syntax
+  # push:
     branches: [kube]
 
 env:
