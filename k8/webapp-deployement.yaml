@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: webapp-deployment
+  namespace: webapp-namespace
 spec:
   replicas: 3
   selector:
@@ -27,23 +28,18 @@ spec:
         - name: DBPWD
           value: "password123"  
         - name: DATABASE
-          value: "employees"  
-        resources:
-          requests:
-            memory: "64Mi"
-            cpu: "250m"
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
-        readinessProbe:
-          httpGet:
-            path: /
-            port: 8080
-          initialDelaySeconds: 5
-          periodSeconds: 5
-        livenessProbe:
-          httpGet:
-            path: /
-            port: 8080
-          initialDelaySeconds: 15
-          periodSeconds: 20
+          value: "employees"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: webapp-service
+  namespace: webapp-namespace
+spec:
+  ports:
+  - port: 8080
+    targetPort: 8080
+  selector:
+    app: webapp
+  type: NodePort
