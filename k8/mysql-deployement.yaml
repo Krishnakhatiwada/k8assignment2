@@ -28,7 +28,10 @@ spec:
         - name: MYSQL_USER
           value: "myappuser"        # Non-root user
         - name: MYSQL_PASSWORD
-          value: "myapppassword"  # Password for the non-root user
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secret  # Reference to the secret
+              key: MYSQL_ROOT_PASSWORD  # Password for the non-root user
         volumeMounts:
         - name: mysql-persistent-storage
           mountPath: /var/lib/mysql
