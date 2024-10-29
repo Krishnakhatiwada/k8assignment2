@@ -2,11 +2,12 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: mysql
+  namespace: mysql-namespace
   labels:
     app: mysql
 spec:
   serviceName: mysql
-  replicas: 3  # Change this if you want more replicas
+  replicas: 1  # Change this if you want more replicas
   selector:
     matchLabels:
       app: mysql
@@ -17,21 +18,17 @@ spec:
     spec:
       containers:
       - name: mysql
-        image: 345771349539.dkr.ecr.us-east-1.amazonaws.com/assginment2-ecr-repo-mysql:1b8426b0a70fa01bbcff0ed94f1709b358ba8951
+        image: 345771349539.dkr.ecr.us-east-1.amazonaws.com/assginment2-ecr-repo-mysql:2a0439a59fdb140761c9cfa26164200d7bdb85a0
         ports:
         - containerPort: 3306
         env:
+        - name: DATABASE
+          value: "employees"
         - name: MYSQL_ROOT_PASSWORD
-          value: "password123"  # Root user password
-        - name: MYSQL_DATABASE
-          value: "employees"   # Database to create on startup
-        - name: MYSQL_USER
-          value: "myappuser"        # Non-root user
-        - name: MYSQL_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: mysql-secret  # Reference to the secret
-              key: MYSQL_ROOT_PASSWORD  # Password for the non-root user
+              name: mysql-secret
+              key: MYSQL_ROOT_PASSWORD 
         volumeMounts:
         - name: mysql-persistent-storage
           mountPath: /var/lib/mysql
@@ -41,12 +38,12 @@ spec:
           claimName: mysql-pvc
       imagePullSecrets:
       - name: ecr-registry
-
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: mysql
+  namespace: mysql-namespace
 spec:
   type: ClusterIP
   ports:
