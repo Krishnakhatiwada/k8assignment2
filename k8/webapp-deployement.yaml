@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: webapp
-        image: 345771349539.dkr.ecr.us-east-1.amazonaws.com/assginment2-ecr-repo-dev:2a0439a59fdb140761c9cfa26164200d7bdb85a0
+        image: 345771349539.dkr.ecr.us-east-1.amazonaws.com/assignment2-ecr-repo-dev:v2
         ports:
         - containerPort: 8080
         env:

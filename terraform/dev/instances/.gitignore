@@ -1,7 +1,12 @@
-
 # Ignore Terraform cache and provider files
-.terraform/*
-terraform.tfstate
-terraform.tfstate.backup
-# Optionally ignore the lock file
+.terraform/
+# Ignore Terraform state files
+*.tfstate
+*.tfstate.backup
+# Ignore the Terraform lock file
 terraform.lock.hcl
+# Ignore all Terraform configuration files (optional)
+*.tf
+# Ignore the specific output file
+output.tf
+/dev/instances
