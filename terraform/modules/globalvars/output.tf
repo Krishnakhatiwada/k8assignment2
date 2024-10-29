@@ -9,5 +9,5 @@ output "default_tags" {
 
 # Prefix to identify resources
 output "prefix" {
-  value = "assignment2" //changed here to push 2nd time
+  value = "assignment2" //changed here to push 3rd time
 }
