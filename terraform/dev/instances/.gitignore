@@ -8,4 +8,5 @@ terraform.lock.hcl
 # Ignore all Terraform configuration files (if you want to ignore these as well)
 *.tf
 # You can also ignore specific directories if needed
-dev/instances/
+dev/instances/*
+
