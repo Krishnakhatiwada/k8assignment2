@@ -6,4 +6,4 @@ nodes:
   - containerPort: 30000
     hostPort: 30000
     protocol: TCP
-# this is for video testing again
+# this is for video testing finsal 
