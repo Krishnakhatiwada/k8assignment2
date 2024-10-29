@@ -5,8 +5,8 @@
 *.tfstate.backup
 # Ignore the Terraform lock file
 terraform.lock.hcl
-# Ignore all Terraform configuration files (if you want to ignore these as well)
+# Ignore all Terraform configuration files (optional)
 *.tf
-# You can also ignore specific directories if needed
-dev/instances/*
-
+# Ignore the specific output file
+output.tf
+/dev/instances
